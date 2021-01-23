@@ -11,7 +11,7 @@ export class CommonService {
   private apiUrl: string;
 
   constructor(private http: HttpClient) {
-   this.apiUrl = environment.ApiBaseUrl;
+   //this.apiUrl = environment.ApiBaseUrl; The part where the api is defined and the service operations are performed.
   }
 
   getList() {

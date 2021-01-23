@@ -1,4 +1,6 @@
 export const environment = {
   production: false,
-  ApiBaseUrl:'../app/json/data.json',
+  //ApiBaseUrl:'https://..'
 };
+
+// Api is defined to apibaseurl.

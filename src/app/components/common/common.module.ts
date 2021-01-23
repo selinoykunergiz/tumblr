@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonComponent } from '../common/common.component';
 import { CommonRoutingModule } from '../common/common-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { WavesModule, TableModule ,ButtonsModule, CollapseModule,InputsModule,ModalModule} from 'angular-bootstrap-md';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { IconsModule } from 'angular-bootstrap-md'
+import { WavesModule ,ButtonsModule, CollapseModule,ModalModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -14,14 +12,9 @@ import { IconsModule } from 'angular-bootstrap-md'
     CommonRoutingModule,
     BrowserModule,
     WavesModule.forRoot(),
-    TableModule,
     ButtonsModule.forRoot(),
     CollapseModule.forRoot(),
-    InputsModule.forRoot(),
-    ModalModule.forRoot(),
-    ReactiveFormsModule,
-    FormsModule,
-    IconsModule
+    ModalModule.forRoot()
   ]
 })
 export class CommonModule { }

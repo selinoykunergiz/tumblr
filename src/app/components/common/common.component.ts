@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md/lib/free/modals/modal.directive';
-import { CommonModel } from 'src/app/models/_index'; 
 import { CommonService } from 'src/app/services/_index';
 import data from '../common/json/data.json';
 
@@ -11,6 +10,7 @@ import data from '../common/json/data.json';
 })
 export class CommonComponent implements OnInit {
 
+  //We call the service typed method here.
   constructor(private commonService: CommonService) { }
 
   @ViewChild('postBody') public postBodyModal: ModalDirective;
@@ -49,7 +49,6 @@ export class CommonComponent implements OnInit {
       };
       this.filteredByDay.push(obj);
     }
-    console.log(this.filteredByDay);
   }
 
 
