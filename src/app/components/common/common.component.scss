@@ -1,0 +1,172 @@
+.section-btn {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .btn-common a {
+        color: white;
+        text-transform: lowercase;
+        font-size: 15px;
+    }
+
+    .tumblr a{
+        font-weight: bold;
+    }
+}
+
+.section-title {
+    width: 100%;
+    text-align: center;
+
+    h1 a {
+        color: #444;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+.section-img {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2%;
+    padding-bottom: 14px;
+    border-bottom: solid 1px #ccc;
+}
+
+
+.post {
+    display: flex;
+    width: 420px;
+    margin: auto;
+    position: relative;
+
+    &-left {
+        display: flex;
+        justify-content: flex-end;
+        max-height: 36px;
+        position: absolute;
+        left: -130px;
+
+        .post-dayl {
+            font-size: 34px;
+            color: #ccc;
+            text-transform: uppercase;
+            line-height: 35px;
+        }
+
+        .post-dayr {
+            background-color: #6498cc;
+            color: #FFF;
+            line-height: 12px;
+            margin-left: 10px;
+            padding: 6px;
+            overflow: hidden;  
+
+            span {
+                display: block;
+                font-size: 12px;
+                font-weight: bolder;
+                text-align: center;
+                          
+            }
+        }
+    }
+
+    &-right {
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        flex-direction: column;
+        max-width: 170px;
+        align-items: flex-start;
+        top: 160px;
+        right: 10px;
+    }
+
+    &-main {
+        display: flex;
+        margin-left: 10px;
+        flex-direction: column;
+
+        .quote {
+            &_text {
+                font-size: 36px;
+                font-weight: bold;
+                color: #888;
+                border-left: solid 5px #6498cc;
+                padding-left: 10px;
+            }
+            .source {
+                font-size: 16px;
+                font-weight: Bold;
+                color: #555;
+                margin-top: 5px;
+            }
+        }
+
+        .conversation {
+            ul {
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px 0px 0px 1px;
+                border-left: solid 5px #bbb;
+            
+                li {
+                    font-size: 12px;
+                    padding: 4px 10px 4px 8px;
+                    color: #444;
+                    margin-bottom: 1px;
+
+                    span {
+                        font-weight: bold;
+                    }
+
+                    &:nth-child(even) {
+                        background: #e8e8e8;
+
+                        span {
+                            color: #00c;
+                        }
+                    }
+                    &:nth-child(odd) {
+                        background: #f4f4f4;
+
+                        span {
+                            color: #c00;
+                        }
+                    }
+                }
+            }
+        }
+
+        .regular {
+            h2 {
+                font-size: 18px;
+                font-weight: bold;
+                color: #6498cc;
+                letter-spacing: -1px;
+                margin: 0px 0px 5px 0px;
+            }
+        }
+
+        .link {
+            a {
+                color: red;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+
+        .post-item {
+            margin-bottom: 40px;
+
+            > a {
+                color: initial;
+            }
+        }
+    }
+}

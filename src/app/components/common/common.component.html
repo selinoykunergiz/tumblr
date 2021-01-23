@@ -1,0 +1,119 @@
+<div class="all-project">
+    <div>
+        <div class="section-btn">
+            <button class="btn-common btn-sm follow" type="button" mdbBtn color="light" mdbWavesEffect>
+                <a href="https://www.tumblr.com/register/follow/demo" target="_blank">Follow demo</a>
+            </button>
+            <button class="btn-common btn-sm tumblr" type="button" mdbBtn color="dark" mdbWavesEffect>
+                <a href="https://www.tumblr.com/" target="_blank">tumblr</a>
+            </button>
+        </div>
+
+        <div class="section-title">
+            <h1><a href="/" target="_blank">{{this.commonList.tumblelog.title}}</a></h1>
+        </div>
+
+        <div class="section-img">
+            <a href="https://demo.tumblr.com/rss"><img src="https://static.tumblr.com/vr9xgox/oiLnf8zpv/rss.gif" id="rss" alt="RSS"></a> 
+        </div>
+
+        <div class="section-contenttype">
+            <div *ngFor="let data of filteredByDay">
+                <div class="post">
+                    <div class="post-left">
+                        <div class="post-dayl">{{data.dayname}}</div>
+                        <div class="post-dayr">
+                            <span>{{data.month}}</span>
+                            <span>{{data.day}}</span>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-content" *ngFor="let post of data.data">
+                            <div class="post-item" *ngIf="post.type == 'quote'">
+                                <a href="{{post['url']}}" target="_blank">
+                                    <div class="quote">
+                                        <div class="quote_text">{{post['quote-text']}}</div>
+                                        <div class="source" [innerHTML]="post['quote-source']"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post-item" *ngIf="post.type == 'photo'">
+                                <div class="photo">
+                                    <a href="{{post['url']}}" target="_blank">
+                                        <img src="{{post['photo-url-400']}}" alt="{{post['slug']}}">
+                                    </a>
+                                    <div class="caption" [innerHTML]="post['photo-caption']"></div>
+                                </div>
+                            </div>
+                            <div class="post-item" *ngIf="post.type == 'link'">
+                                <div class="link">
+                                    <a href="{{post['url']}}" target="_blank" class="link">{{post['link-text']}}</a>
+                                    <span class="description" [innerHTML]="post['link-description']"></span>
+                                </div>
+                            </div>
+                            <div class="post-item" *ngIf="post.type == 'conversation'">
+                                <div class="conversation">
+                                    <ul>
+                                        <li class="{{c['name']}}" *ngFor="let c of post.conversation">
+                                            <span class="label">{{c['label']}}</span>
+                                            {{c['phrase']}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-item" *ngIf="post.type == 'audio'">
+                                <a href="{{post['url']}}" target="_blank">
+                                    <div class="audio">
+                                        <span id="{{post['id']}}"><div class="audio_player"></div></span>
+                                        <div class="caption" [innerHTML]="post['audio-caption']"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post-item" *ngIf="post.type == 'regular'">
+                                <div class="regular">
+                                    <a href="{{post['url']}}" target="_blank">
+                                        <h2 *ngIf="post['regular-title']" [innerHTML]="post['regular-title']"></h2>
+                                    </a>
+                                    <div [innerHTML]="post['regular-body']"></div>
+                                </div>
+                                <button class="btn-common btn-sm follow" type="button" mdbBtn color="light" mdbWavesEffect (click)="openDetailBody(post['id'])">Open with Modal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-right">
+                <form action="/search" method="get">
+                    <input type="text" name="q" value="">
+                    <input type="submit" value="Search">
+                </form>
+
+                <div><b>POST COUNT: {{this.commonList.posts.length}}</b></div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+
+<!-- Modal-->
+<div mdbModal #postBody="mdbModal" class="modal fade left" id="postBody" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Post Detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="postBody.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3" [innerHTML]="modalData">
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="postBody.hide()" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
